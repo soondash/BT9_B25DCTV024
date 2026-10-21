@@ -1,0 +1,156 @@
+/* ==========================================================================
+   DESIGN TOKENS & RESET
+   Hệ màu hiện đại: Indigo & Emerald, Glassmorphism, Dark Mode Tokens
+   ========================================================================== */
+
+:root {
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+
+  /* Light Theme Colors */
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-input: #ffffff;
+  --bg-hover: #f1f5f9;
+  --bg-active: #e2e8f0;
+
+  --border-subtle: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-focus: #3b82f6;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  /* Brand Accents */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-light: #eff6ff;
+  --color-primary-border: #bfdbfe;
+
+  --color-class: #dc2626;
+  --color-class-bg: #fef2f2;
+  --color-class-border: #fecaca;
+
+  --color-hooks: #059669;
+  --color-hooks-bg: #ecfdf5;
+  --color-hooks-border: #a7f3d0;
+
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-danger-bg: #fef2f2;
+  --color-danger-border: #fee2e2;
+
+  --color-warning: #f59e0b;
+  --color-warning-bg: #fffbeb;
+
+  --color-info: #0284c7;
+  --color-info-bg: #f0f9ff;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   DARK THEME TOKENS
+   ========================================================================== */
+
+[data-theme='dark'],
+.dark-mode {
+  --bg-app: #0b0f17;
+  --bg-surface: #111827;
+  --bg-surface-elevated: #1f2937;
+  --bg-card: rgba(17, 24, 39, 0.88);
+  --bg-input: #1e293b;
+  --bg-hover: #1e293b;
+  --bg-active: #334155;
+
+  --border-subtle: #1f2937;
+  --border-medium: #374151;
+  --border-focus: #60a5fa;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-inverse: #0f172a;
+
+  --color-primary: #3b82f6;
+  --color-primary-hover: #60a5fa;
+  --color-primary-light: rgba(59, 130, 246, 0.15);
+  --color-primary-border: rgba(59, 130, 246, 0.3);
+
+  --color-class: #f87171;
+  --color-class-bg: rgba(239, 68, 68, 0.15);
+  --color-class-border: rgba(239, 68, 68, 0.3);
+
+  --color-hooks: #34d399;
+  --color-hooks-bg: rgba(16, 185, 129, 0.15);
+  --color-hooks-border: rgba(16, 185, 129, 0.3);
+
+  --color-danger: #f87171;
+  --color-danger-hover: #ef4444;
+  --color-danger-bg: rgba(239, 68, 68, 0.12);
+  --color-danger-border: rgba(239, 68, 68, 0.25);
+
+  --color-warning: #fbbf24;
+  --color-warning-bg: rgba(245, 158, 11, 0.15);
+
+  --color-info: #38bdf8;
+  --color-info-bg: rgba(2, 132, 199, 0.15);
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   GLOBAL RESET
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
